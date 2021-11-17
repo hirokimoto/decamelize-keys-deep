@@ -20,9 +20,9 @@ module.exports = function decamelizeKeysDeep(obj, options) {
   if (typeof obj === "object") {
     return mapObj(obj, function(key, value) {
       var newKey = decamelize(key, options);
-      if (key !== newKey && newKey in obj) {
-        throw new Error("Decamelized key `" + newKey + "` would overwrite existing key of the given JSON object");
-      }
+      // if (key !== newKey && newKey in obj) {
+      //   throw new Error("Decamelized key `" + newKey + "` would overwrite existing key of the given JSON object");
+      // }
       return [newKey, decamelizeKeysDeep(value, options)];
     });
   }
